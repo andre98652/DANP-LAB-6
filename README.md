@@ -126,6 +126,3 @@ A continuación, detallo y justifico cómo apliqué cada una de las letras de lo
 Para ejecutar mi proyecto localmente, simplemente abre esta carpeta raíz en tu Android Studio, sincroniza el proyecto con los archivos de Gradle e inicia la aplicación en tu emulador o dispositivo físico.
 
 ---
-
-> [!TIP]
-> **Mi Estrategia de Defensa:** La inyección de dependencias manual mediante `AppContainer` y mis Casos de Uso cohesivos son ideales para sustentar. Puedo mostrarle a mi docente exactamente cómo se inyectan los repositorios en cada constructor, demostrando un dominio absoluto de la arquitectura de software sin la necesidad de ocultar la lógica en anotaciones complejas autogeneradas.
