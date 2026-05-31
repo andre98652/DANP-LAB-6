@@ -1,4 +1,4 @@
-# 🍳 PantryPal - Mi Asistente de Cocina Inteligente & Despensa
+# 🍳 PantryPal - Asistente de Cocina Inteligente & Despensa
 
 ¡Bienvenido a **PantryPal**! Esta es mi aplicación móvil avanzada de Android desarrollada íntegramente en **Jetpack Compose**. Diseñé este proyecto desde cero bajo los estándares de ingeniería de software más exigentes de la industria, garantizando una arquitectura **altamente modular, desacoplada, escalable y mantenible**.
 
@@ -6,7 +6,7 @@ El objetivo central de mi laboratorio es demostrar con hechos y código limpio c
 
 ---
 
-## 🏗️ 1. Mi Arquitectura del Sistema: Limpia y Modular
+## 🏗️ 1. Arquitectura del Sistema: Limpia y Modular
 
 Para lograr el máximo desacoplamiento, decidí utilizar una arquitectura **Clean Architecture** estructurada por **Paquetes de Características (Feature-by-Package)** que emula a la perfección un sistema multi-módulos físicos:
 
@@ -41,7 +41,7 @@ com.example.lab6/
 
 ---
 
-## 🧠 2. Cómo apliqué los Principios SOLID en mi Proyecto
+## 🧠 2. Principios SOLID en mi Proyecto
 
 A continuación, detallo y justifico cómo apliqué cada una de las letras de los principios SOLID en mi desarrollo:
 
@@ -104,7 +104,7 @@ A continuación, detallo y justifico cómo apliqué cada una de las letras de lo
 
 ---
 
-## 🌟 3. Características Estrella que Desarrollé en mi App
+## 🌟 3. Características
 
 1. **Algoritmo Reactivo "¿Qué puedo cocinar hoy?":**
    Construí un caso de uso (`GetAvailableRecipesUseCase`) que cruza en tiempo real todos los ingredientes requeridos de cada receta con las existencias en mi despensa. Calcula de forma automática el porcentaje de coincidencia exacta y destaca con precisión qué ingredientes faltan y en qué cantidad específica (ej. *"Te falta 0.5 kg de Pechuga de Pollo"*), empujando las recetas con mayor viabilidad al inicio de la lista.
