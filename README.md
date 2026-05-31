@@ -1,83 +1,83 @@
-# 🍳 PantryPal - Asistente de Cocina Inteligente & Despensa
+# 🍳 PantryPal - Mi Asistente de Cocina Inteligente & Despensa
 
-¡Bienvenido a **PantryPal**! Esta es una aplicación móvil avanzada de Android desarrollada íntegramente en **Jetpack Compose**. El proyecto ha sido diseñado desde cero bajo los estándares de ingeniería de software más exigentes de la industria, garantizando una arquitectura **altamente modular, desacoplada, escalable y mantenible**.
+¡Bienvenido a **PantryPal**! Esta es mi aplicación móvil avanzada de Android desarrollada íntegramente en **Jetpack Compose**. Diseñé este proyecto desde cero bajo los estándares de ingeniería de software más exigentes de la industria, garantizando una arquitectura **altamente modular, desacoplada, escalable y mantenible**.
 
-El objetivo central de este laboratorio es demostrar con hechos y código limpio la aplicación rigurosa de los **Principios SOLID**, implementando un algoritmo inteligente de coincidencia de recetas que interactúa de manera reactiva con la despensa y una lista de compras automatizada.
+El objetivo central de mi laboratorio es demostrar con hechos y código limpio cómo apliqué rigurosamente los **Principios SOLID**, implementando un algoritmo inteligente de coincidencia de recetas que interactúa de manera reactiva con la despensa y una lista de compras automatizada.
 
 ---
 
-## 🏗️ 1. Arquitectura del Sistema: Limpia y Modular
+## 🏗️ 1. Mi Arquitectura del Sistema: Limpia y Modular
 
-Para lograr el máximo desacoplamiento, la aplicación utiliza una arquitectura **Clean Architecture** estructurada por **Paquetes de Características (Feature-by-Package)** que emula a la perfección un sistema multi-módulos físicos:
+Para lograr el máximo desacoplamiento, decidí utilizar una arquitectura **Clean Architecture** estructurada por **Paquetes de Características (Feature-by-Package)** que emula a la perfección un sistema multi-módulos físicos:
 
 ```
 com.example.lab6/
 │
-├── core/                         # Capa transversal y sistema de diseño
+├── core/                         # Capa transversal y mi sistema de diseño
 │   ├── di/                       # Inyección de Dependencias Manual (SOLID: DIP)
-│   ├── theme/                    # Colores premium (HSL), Tipografías, Tema Oscuro/Claro
+│   ├── theme/                    # Mis colores premium (HSL), Tipografías y Tema
 │   └── designsystem/             # Componentes visuales genéricos y estilizados (SOLID: SRP)
 │
 └── features/                     # Capa de Características del Negocio (SOLID: ISP)
     │
-    ├── pantry/                   # Módulo: Gestión de Despensa e Ingredientes
-    │   ├── domain/               # Entidades, Interfaces de Repositorio y Casos de Uso
-    │   ├── data/                 # Implementaciones de Repositorios (Persistencia reactiva en memoria)
+    ├── pantry/                   # Mi Módulo: Gestión de Despensa e Ingredientes
+    │   ├── domain/               # Mis Entidades, Interfaces de Repositorio y Casos de Uso
+    │   ├── data/                 # Implementaciones de Repositorio (Persistencia reactiva en memoria)
     │   └── presentation/         # UI en Jetpack Compose, ViewModels y Gestión de Estados
     │
-    ├── recipes/                  # Módulo: Buscador Inteligente de Recetas
+    ├── recipes/                  # Mi Módulo: Buscador Inteligente de Recetas
     │   ├── domain/
     │   ├── data/
     │   └── presentation/
     │
-    └── shopping/                 # Módulo: Lista de Compras y Abastecimiento Inteligente
+    └── shopping/                 # Mi Módulo: Lista de Compras y Abastecimiento
         ├── domain/
         ├── data/
         └── presentation/
 ```
 
 > [!NOTE]
-> **Reactividad Unidireccional (MVI/UDF):** Cada módulo de presentación expone un estado inmutable único (`StateFlow<State>`) y procesa acciones a través de eventos inmutables (`onEvent(Event)`), previniendo efectos secundarios colaterales en la UI.
+> **Mi Enfoque de Reactividad Unidireccional (MVI/UDF):** Cada módulo de presentación que diseñé expone un estado inmutable único (`StateFlow<State>`) y procesa acciones a través de eventos inmutables (`onEvent(Event)`), previniendo efectos secundarios colaterales en mi UI.
 
 ---
 
-## 🧠 2. Aplicación Detallada de los Principios SOLID
+## 🧠 2. Cómo apliqué los Principios SOLID en mi Proyecto
 
-A continuación se detalla matemáticamente y con ejemplos de código de la app cómo se cumple cada principio SOLID:
+A continuación, detallo y justifico cómo apliqué cada una de las letras de los principios SOLID en mi desarrollo:
 
-### 🧠 **S** - Single Responsibility Principle (Responsabilidad Única)
-* **Teoría:** Un componente (clase, función, módulo) debe tener una, y solo una, razón para cambiar.
-* **Aplicación en PantryPal:**
-  * **Capa de Dominio Pura:** La clase `PantryItem` ([PantryItem.kt](file:///d:/lab6/app/src/main/java/com/example/lab6/features/pantry/domain/PantryItem.kt)) tiene la única responsabilidad de modelar la estructura de datos del ingrediente y calcular su frescura interna en base a reglas de negocio puras. No sabe nada de UI ni de almacenamiento de datos.
-  * **Casos de Uso Unitarios:** Cada caso de uso realiza una única transacción de negocio. Por ejemplo, `AddPantryItemUseCase` ([PantryUseCases.kt](file:///d:/lab6/app/src/main/java/com/example/lab6/features/pantry/domain/PantryUseCases.kt)) solo se encarga de validar los datos del alimento y llamar al repositorio para persistirlo.
-  * **Desacoplamiento de UI:** Los composables de Compose (`PantryScreen`, `RecipesScreen`) solo dibujan en pantalla. La lógica de control del estado visual es delegada en exclusiva a los ViewModels.
+### 🧠 **S** - Single Responsibility Principle (Principio de Responsabilidad Única)
+* **Mi Definición:** Diseñé cada clase, función o archivo para tener una, y solo una, razón para cambiar.
+* **Cómo lo apliqué en mi código:**
+  * **Capa de Dominio Pura:** Mi clase `PantryItem` ([PantryItem.kt](file:///d:/lab6/app/src/main/java/com/example/lab6/features/pantry/domain/PantryItem.kt)) tiene la única responsabilidad de modelar la estructura de datos del ingrediente y calcular su frescura interna en base a reglas de negocio puras. No sabe nada de UI, bases de datos o redes.
+  * **Casos de Uso Unitarios:** Creé un archivo de casos de uso para cada tarea lógica. Por ejemplo, `AddPantryItemUseCase` ([PantryUseCases.kt](file:///d:/lab6/app/src/main/java/com/example/lab6/features/pantry/domain/PantryUseCases.kt)) solo se encarga de validar los datos del alimento y llamar al repositorio para persistirlo.
+  * **Desacoplamiento de UI:** Mis composables de Compose (`PantryScreen`, `RecipesScreen`) solo dibujan en pantalla. La lógica de control del estado visual la delegué en exclusiva a los ViewModels correspondientes.
 
-### 🔌 **O** - Open/Closed Principle (Abierto/Cerrado)
-* **Teoría:** El software debe estar abierto para su extensión pero cerrado para su modificación.
-* **Aplicación en PantryPal:**
-  * **Extensibilidad de Recetas:** Si en el futuro deseas reemplazar el catálogo de recetas locales por una API en la nube, **no tienes que modificar una sola línea de código** de la UI ni de la lógica del algoritmo de coincidencia. Simplemente creas una nueva implementación de `RecipeRepository` (ej. `CloudRecipeRepositoryImpl`) y la inyectas en el contenedor central.
-  * **Cálculo de Frescura Flexible:** El sistema evalúa el estado del alimento dinámicamente mediante el enum `FreshnessStatus`. Si la empresa decide añadir un nuevo estado (ej. *"Congelado"* o *"Maduro"*), se extiende el enum y las reglas en `daysRemaining()` sin alterar la estructura básica de almacenamiento de datos.
+### 🔌 **O** - Open/Closed Principle (Principio de Abierto/Cerrado)
+* **Mi Definición:** Diseñé mi código para estar abierto para su extensión pero cerrado para su modificación.
+* **Cómo lo apliqué en mi código:**
+  * **Extensibilidad de Recetas:** Si en el futuro decido reemplazar mi catálogo de recetas locales por una API en la nube, **no tendré que modificar una sola línea de código** de mi UI ni de mi algoritmo de coincidencia. Simplemente crearé una nueva implementación de `RecipeRepository` (ej. `CloudRecipeRepositoryImpl`) y la inyectaré en mi contenedor central de dependencias.
+  * **Cálculo de Frescura Flexible:** Mi sistema evalúa el estado de frescura de los alimentos dinámicamente mediante el enum `FreshnessStatus`. Si decido añadir un nuevo estado (ej. *"Congelado"* o *"Maduro"*), solo tengo que extender el enum y las reglas en `daysRemaining()` sin alterar la estructura de mis repositorios.
 
-### 🔄 **L** - Liskov Substitution Principle (Sustitución de Liskov)
-* **Teoría:** Si $S$ es un subtipo de $T$, los objetos de tipo $T$ deben poder ser reemplazados por objetos de tipo $S$ sin alterar las propiedades del programa.
-* **Aplicación en PantryPal:**
-  * **Sustitución de Orígenes de Datos:** La interfaz `PantryRepository` ([PantryRepository.kt](file:///d:/lab6/app/src/main/java/com/example/lab6/features/pantry/domain/PantryRepository.kt)) es implementada en memoria por `PantryRepositoryImpl`. Si mañana se implementa una base de datos local utilizando SQLite/Room (`RoomPantryRepositoryImpl`), ambas clases pueden ser intercambiadas en `AppContainerImpl` con total transparencia. 
-  * Los métodos respetan estrictamente los contratos reactivos mediante `Flow<List<PantryItem>>` y funciones suspendibles, sin lanzar excepciones no controladas ni requerir comportamientos anómalos.
+### 🔄 **L** - Liskov Substitution Principle (Principio de Sustitución de Liskov)
+* **Mi Definición:** Diseñé mis subtipos para poder sustituir a sus supertipos sin romper la consistencia de mi programa.
+* **Cómo lo apliqué en mi código:**
+  * **Sustitución de Repositorios:** Mi interfaz `PantryRepository` ([PantryRepository.kt](file:///d:/lab6/app/src/main/java/com/example/lab6/features/pantry/domain/PantryRepository.kt)) es implementada en memoria por `PantryRepositoryImpl`. Si mañana decido implementar una base de datos física local utilizando **Room** (`RoomPantryRepositoryImpl`), podré intercambiarlas en mi `AppContainerImpl` de forma inmediata. 
+  * Todos mis métodos respetan estrictamente los contratos reactivos mediante `Flow<List<PantryItem>>` y funciones suspendibles, sin lanzar excepciones imprevistas.
 
-### 📐 **I** - Interface Segregation Principle (Segregación de Interfaces)
-* **Teoría:** Los clientes no deben ser obligados a depender de interfaces que no utilizan. Es mejor muchas interfaces delgadas y enfocadas que una sola interfaz monolítica.
-* **Aplicación en PantryPal:**
-  * **Interfaces Especializadas:** En lugar de crear un único y gigantesco repositorio de datos para toda la aplicación (`AppRepository`), se han segregado tres interfaces altamente enfocadas y cohesivas en sus respectivos dominios:
-    1. `PantryRepository` ([PantryRepository.kt](file:///d:/lab6/app/src/main/java/com/example/lab6/features/pantry/domain/PantryRepository.kt)) - Exclusivo para el inventario de cocina.
-    2. `RecipeRepository` ([RecipeRepository.kt](file:///d:/lab6/app/src/main/java/com/example/lab6/features/recipes/domain/RecipeRepository.kt)) - Exclusivo para consulta del catálogo culinario.
-    3. `ShoppingRepository` ([ShoppingRepository.kt](file:///d:/lab6/app/src/main/java/com/example/lab6/features/shopping/domain/ShoppingRepository.kt)) - Exclusivo para la lista de compras.
-  * Esto previene que la pantalla de recetas tenga acceso indebido a operaciones de eliminación de la lista de compras, reduciendo exponencialmente el acoplamiento destructivo.
+### 📐 **I** - Interface Segregation Principle (Principio de Segregación de Interfaces)
+* **Mi Definición:** Evité crear interfaces monopólicas. Preferí diseñar múltiples interfaces delgadas y altamente cohesivas.
+* **Cómo lo apliqué en mi código:**
+  * **Interfaces Especializadas:** En lugar de crear una gran interfaz `AppRepository` para toda la app, decidí segregar mis operaciones en tres interfaces enfocadas por dominio:
+    1. `PantryRepository` - Dedicado únicamente al inventario y frescura.
+    2. `RecipeRepository` - Dedicado únicamente a la consulta de recetas.
+    3. `ShoppingRepository` - Dedicado únicamente a la lista de compras del supermercado.
+  * Esto previene que mi pantalla de recetas tenga acceso a operaciones de borrado de la lista de compras, asegurando que mis clases dependan solo de lo que necesitan.
 
-### 💉 **D** - Dependency Inversion Principle (Inversión de Dependencias)
-* **Teoría:** Los módulos de alto nivel no deben depender de módulos de bajo nivel. Ambos deben depender de abstracciones (interfaces).
-* **Aplicación en PantryPal:**
-  * **Sin Dependencia de Detalles:** Los ViewModels (alto nivel) jamás instancian directamente las implementaciones de datos en memoria (`PantryRepositoryImpl`) ni clientes de red. Dependen exclusivamente de las interfaces abstractas de la capa de dominio.
-  * **Contenedor de Inyección Manual (`AppContainer`):** Implementamos un contenedor transparente y limpio ([AppContainer.kt](file:///d:/lab6/app/src/main/java/com/example/lab6/core/di/AppContainer.kt)) que gestiona las dependencias del proyecto de manera limpia:
+### 💉 **D** - Dependency Inversion Principle (Principio de Inversión de Dependencias)
+* **Mi Definición:** Mis módulos de alto nivel (UI/ViewModels) no dependen de detalles de bajo nivel (persistencia o redes). Ambos dependen exclusivamente de abstracciones (interfaces).
+* **Cómo lo apliqué en mi código:**
+  * **Sin Dependencia de Detalles:** Mis ViewModels jamás instancian directamente las implementaciones de mis datos (`PantryRepositoryImpl`) ni clientes de red. Dependen exclusivamente de mis interfaces de dominio.
+  * **Mi Contenedor de Inyección Manual (`AppContainer`):** Para evitar fallos de compilación con Hilt, implementé un contenedor central de dependencias manual ([AppContainer.kt](file:///d:/lab6/app/src/main/java/com/example/lab6/core/di/AppContainer.kt)):
     ```kotlin
     interface AppContainer {
         val pantryRepository: PantryRepository
@@ -85,46 +85,47 @@ A continuación se detalla matemáticamente y con ejemplos de código de la app 
         val shoppingRepository: ShoppingRepository
     }
     ```
-  * Los ViewModels se inyectan en `MainActivity.kt` de forma declarativa mediante Compose `initializer`:
+  * Mis ViewModels se inyectan a nivel de actividad en `MainActivity.kt` mediante el delegado oficial de Kotlin `by viewModels` y `viewModelFactory`:
     ```kotlin
-    val recipesViewModel: RecipesViewModel = viewModel(
-        initializer = {
-            val app = this[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY] as PantryPalApplication
-            val container = app.container
-            RecipesViewModel(
-                getAvailableRecipesUseCase = GetAvailableRecipesUseCase(
-                    recipeRepository = container.recipeRepository,
-                    pantryRepository = container.pantryRepository
+    private val pantryViewModel: PantryViewModel by viewModels {
+        viewModelFactory {
+            initializer {
+                val app = application as PantryPalApplication
+                val container = app.container
+                PantryViewModel(
+                    getPantryItemsUseCase = GetPantryItemsUseCase(container.pantryRepository),
+                    addPantryItemUseCase = AddPantryItemUseCase(container.pantryRepository),
+                    deletePantryItemUseCase = DeletePantryItemUseCase(container.pantryRepository)
                 )
-            )
+            }
         }
-    )
+    }
     ```
 
 ---
 
-## 🌟 3. Características Estrella Implementadas
+## 🌟 3. Características Estrella que Desarrollé en mi App
 
-1. **Algoritmo Inteligente "¿Qué puedo cocinar hoy?":**
-   Cruza en tiempo real todos los ingredientes requeridos de cada receta con las existencias de la despensa. Calcula el porcentaje de coincidencia exacta y destaca exactamente qué ingredientes faltan y en qué cantidad específica (ej. *"Te falta 0.5 kg de Pechuga de Pollo"*), ordenando las recetas con mayor viabilidad al inicio de la lista.
+1. **Algoritmo Reactivo "¿Qué puedo cocinar hoy?":**
+   Construí un caso de uso (`GetAvailableRecipesUseCase`) que cruza en tiempo real todos los ingredientes requeridos de cada receta con las existencias en mi despensa. Calcula de forma automática el porcentaje de coincidencia exacta y destaca con precisión qué ingredientes faltan y en qué cantidad específica (ej. *"Te falta 0.5 kg de Pechuga de Pollo"*), empujando las recetas con mayor viabilidad al inicio de la lista.
 2. **Ciclo de Abastecimiento Automatizado (Traspaso):**
-   Al ir de compras, marcas los casilleros de los artículos adquiridos en la pestaña **Compras**. Con un solo toque en **Completar Compra**, el sistema calcula una fecha de vencimiento inteligente estimada en función de la categoría del alimento (ej. 4 días para carnes, 7 para lácteos, no perecederos permanentes), inyecta automáticamente los alimentos nuevos o incrementa la cantidad existente en la **Despensa**, y limpia la lista de compras en una única transacción de dominio coordinada por `PurchaseCompletedItemsUseCase`.
-3. **Control Visual de Alertas de Frescura:**
-   La UI utiliza un esquema de color HSL premium y dinámico. Los alimentos se marcan con colores vibrantes según su fecha límite (Rojo = Vencido, Naranja = Por vencer en menos de 3 días, Verde = Fresco y Seguro, Azul = No perecedero), con ordenación inteligente que empuja los productos vencidos a la parte superior de la despensa para evitar el desperdicio de alimentos.
-4. **Diseño Visual Glassmorphic:**
-   Uso de tarjetas semitransparentes personalizadas, elevaciones controladas, tipografía moderna y micro-interacciones interactivas de Jetpack Compose en un esquema de color inspirado en la frescura y la cocina mediterránea.
+   Al ir de compras, marco los casilleros de los artículos adquiridos en mi pestaña **Compras**. Con un solo toque en **Completar**, mi sistema calcula una fecha de vencimiento inteligente estimada según la categoría del alimento (ej. 4 días para carnes, 7 para lácteos, no perecederos permanentes) e inyecta de forma automática los alimentos en mi **Despensa**, limpiando mi lista de compras en una única transacción.
+3. **Jerarquía Visual y Control Cromático de Frescura:**
+   La UI utiliza un esquema de color HSL premium y dinámico. Los alimentos se marcan con colores vibrantes según su fecha límite (Rojo = Vencido, Naranja = Por vencer en menos de 3 días, Verde = Fresco y Seguro, Azul = No perecedero), con una ordenación inteligente que empuja los productos vencidos a la parte superior de la despensa. Además, rediseñé las tarjetas para que la categoría aparezca como un subtítulo estilizado en mayúsculas con espaciado de letras, asegurando que nunca se oculte si el nombre del alimento es largo.
+4. **Adición Dinámica de Recetas con Parser Inteligente:**
+   Implementé la posibilidad de añadir nuevas recetas a través de un Botón de Acción Flotante (FAB). Diseñé un cuadro de diálogo con un parser de texto que analiza líneas escritas en formato `Nombre, Cantidad, Unidad` para los ingredientes y procesa las instrucciones línea por línea. Al guardarse, se integra al instante con el buscador inteligente de forma reactiva.
 
 ---
 
-## 🚀 4. Requisitos y Compilación
+## 🚀 4. Requisitos y Ejecución de mi Proyecto
 
 * **Android SDK mínimo:** API 24 (Android 7.0 Nougat).
 * **Compilación recomendada:** Android Studio Ladybug / Koala o superior con **JDK 17**.
 * **Framework principal:** Jetpack Compose (Kotlin `2.2.10` / Compose BOM `2026.02.01`).
 
-Para ejecutar el proyecto localmente, simplemente abre la carpeta raíz en Android Studio, deja que sincronice con Gradle e inicia la aplicación en tu emulador o dispositivo físico. 
+Para ejecutar mi proyecto localmente, simplemente abre esta carpeta raíz en tu Android Studio, sincroniza el proyecto con los archivos de Gradle e inicia la aplicación en tu emulador o dispositivo físico.
 
 ---
 
 > [!TIP]
-> **Fácil de Defender en Exámenes:** La inyección de dependencias manual mediante `AppContainer` y los Casos de Uso cohesivos son el material de defensa ideal para un examen oral o sustentación de laboratorio. Puedes mostrarle a tu docente exactamente cómo se inyectan los repositorios en cada constructor, demostrando un dominio absoluto de la arquitectura de software sin la necesidad de ocultar la lógica en anotaciones autogeneradas.
+> **Mi Estrategia de Defensa:** La inyección de dependencias manual mediante `AppContainer` y mis Casos de Uso cohesivos son ideales para sustentar. Puedo mostrarle a mi docente exactamente cómo se inyectan los repositorios en cada constructor, demostrando un dominio absoluto de la arquitectura de software sin la necesidad de ocultar la lógica en anotaciones complejas autogeneradas.
